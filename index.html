@@ -1,362 +1,898 @@
 <!DOCTYPE html>
 <!-- 
-  Portfolio of Kipler (Frontend & UI/UX Developer)
-  All projects linked to GitHub Pages and repositories: https://github.com/Aziz-Kipler
+  Portfolio & Biography of Kipler (Frontend & UI/UX Developer)
+  Projects linked to GitHub Pages and Repositories
 -->
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Kipler — Портфолио & Frontend-разработчик</title>
-  <meta name="description" content="Портфолио фронтенд-разработчика Kipler: веб-платформы, селективные маркетплейсы, интерактивные веб-интерфейсы.">
+  <title>Kipler — Портфолио & Frontend Developer</title>
+  <meta name="description" content="Портфолио и биография фронтенд-разработчика Kipler: веб-платформы, селективные e-commerce маркетплейсы, чистая архитектура и UI/UX дизайн.">
+  <meta name="author" content="Kipler">
+  <meta name="theme-color" content="#06050e">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Kipler — Портфолио & Frontend Developer">
+  <meta property="og:description" content="Интерактивные интерфейсы, селективные маркетплейсы и адаптивные веб-платформы от разработчика Kipler.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Unbounded & Manrope & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    :root{
-      --bg:#06050f; --ink:#f3f1ff; --muted:#a29fc0; --line:rgba(160,140,255,.16);
-      --card:rgba(255,255,255,.04); --v:#8b5cf6; --b:#3b82f6; --p:#ff3db8;
-      box-sizing:border-box;
-      padding-top:env(safe-area-inset-top,0px);
-      padding-bottom:env(safe-area-inset-bottom,0px);
+    :root {
+      --bg: #06050e;
+      --bg-surface: #0c0a18;
+      --bg-card: rgba(18, 15, 33, 0.65);
+      --ink: #f5f3ff;
+      --muted: #9d99be;
+      --dim: #646083;
+      --line: rgba(167, 139, 250, 0.14);
+      --line-hover: rgba(167, 139, 250, 0.38);
+      --violet: #8b5cf6;
+      --purple: #a855f7;
+      --cyan: #38bdf8;
+      --pink: #ec4899;
+      --emerald: #10b981;
     }
-    html{
-      scroll-behavior:smooth;
-      scroll-padding-top:env(safe-area-inset-top,0px);
-      color-scheme:dark;
-      background-color:#06050f;
-      overflow-x:hidden !important;
-      width:100%;
-      max-width:100vw;
-      margin:0;
-      padding:0;
+
+    * {
+      box-sizing: border-box;
     }
-    body{
-      position:relative;
-      background:var(--bg);
-      color:var(--ink);
-      font-family:'Manrope',system-ui,sans-serif;
-      overflow-x:hidden !important;
-      width:100%;
-      max-width:100vw;
-      margin:0;
-      padding:0;
-      -webkit-font-smoothing:antialiased;
+
+    html {
+      scroll-behavior: smooth;
+      color-scheme: dark;
+      background-color: var(--bg);
+      overflow-x: hidden !important;
+      width: 100%;
+      max-width: 100vw;
+      margin: 0;
+      padding: 0;
     }
-    .display{font-family:'Unbounded','Manrope',sans-serif;letter-spacing:-.02em}
-    section,footer,header{position:relative;z-index:1}
-    /* neon background */
-    .bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-    .bg::before{
-      content:"";position:absolute;inset:0;
-      background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
-      background-size:56px 56px;
-      -webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000 10%,transparent 70%);
-      mask-image:radial-gradient(ellipse at 50% 30%,#000 10%,transparent 70%)
+
+    body {
+      position: relative;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+      overflow-x: hidden !important;
+      width: 100%;
+      max-width: 100vw;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    .blob{position:absolute;border-radius:50%;filter:blur(100px);opacity:.5;animation:drift 32s ease-in-out infinite alternate}
-    .o1{width:480px;height:480px;background:var(--v);top:-8%;left:-10%}
-    .o2{width:440px;height:440px;background:var(--b);top:18%;right:-12%;animation-delay:-10s;animation-duration:38s}
-    .o3{width:420px;height:420px;background:var(--p);bottom:-10%;left:25%;opacity:.38;animation-delay:-20s}
-    @keyframes drift{
-      0%{transform:translate3d(0,0,0) scale(1)}
-      50%{transform:translate3d(60px,-40px,0) scale(1.1)}
-      100%{transform:translate3d(-50px,50px,0) scale(1.04)}
+
+    .display {
+      font-family: 'Unbounded', 'Manrope', sans-serif;
+      letter-spacing: -0.025em;
     }
-    #spot{
-      position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;z-index:0;pointer-events:none;
-      background:radial-gradient(circle,rgba(139,92,246,.28),rgba(255,61,184,.12) 40%,transparent 70%);
-      transform:translate3d(50vw,30vh,0);opacity:0;transition:opacity .4s ease
+
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
     }
-    .neon{background:linear-gradient(100deg,#60a5fa,var(--v) 45%,var(--p));-webkit-background-clip:text;background-clip:text;color:transparent}
-    /* buttons */
-    .btn{position:relative;isolation:isolate;transition:transform .25s ease,box-shadow .3s ease,border-color .3s ease,background .3s ease}
-    .btn:hover{transform:translateY(-2px)}
-    .btn:active{transform:translateY(0)}
-    .btn-primary{background:linear-gradient(100deg,var(--v),var(--p));box-shadow:0 8px 28px -10px rgba(139,92,246,.8)}
-    .btn-primary::before{
-      content:"";position:absolute;inset:-4px;z-index:-1;border-radius:inherit;
-      background:linear-gradient(100deg,var(--b),var(--v),var(--p),var(--b));
-      background-size:300% 100%;filter:blur(18px);opacity:0;transition:opacity .35s ease;animation:glow 6s linear infinite
+
+    /* Ambient background grid & glowing orbs */
+    .bg-mesh {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
     }
-    .btn-primary:hover::before{opacity:.85}
-    .btn-primary:hover{box-shadow:0 0 0 1px rgba(255,255,255,.25)}
-    .btn-ghost{border:1px solid var(--line);background:var(--card)}
-    .btn-ghost:hover{border-color:var(--v);background:rgba(139,92,246,.12);box-shadow:0 0 28px -4px rgba(139,92,246,.7)}
-    @keyframes glow{to{background-position:300% 0}}
-    /* cards with pointer spotlight */
-    .card{
-      position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);
-      transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;
-      backdrop-filter:blur(8px);
+
+    .bg-mesh::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 60px 60px;
+      -webkit-mask-image: radial-gradient(ellipse at 50% 25%, #000 15%, transparent 75%);
+      mask-image: radial-gradient(ellipse at 50% 25%, #000 15%, transparent 75%);
+      opacity: 0.8;
     }
-    .card::before{
-      content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s ease;
-      background:radial-gradient(280px circle at var(--mx,50%) var(--my,50%),rgba(139,92,246,.32),transparent 70%)
+
+    .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.45;
+      animation: orbDrift 28s ease-in-out infinite alternate;
     }
-    .card:hover{transform:translateY(-4px);border-color:rgba(139,92,246,.6);box-shadow:0 20px 50px -20px rgba(139,92,246,.6)}
-    .card:hover::before{opacity:1}
-    .card > *{position:relative}
-    .thumb{height:170px;border-radius:14px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
-    .thumb::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 15%,rgba(255,255,255,.3),transparent 60%)}
-    /* entrance on load */
-    .rise{opacity:0;transform:translateY(18px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
-    .rise:nth-child(2){animation-delay:.12s}.rise:nth-child(3){animation-delay:.24s}.rise:nth-child(4){animation-delay:.36s}
-    @keyframes rise{to{opacity:1;transform:none}}
-    a:focus-visible,button:focus-visible{outline:2px solid var(--b);outline-offset:3px}
-    @media (prefers-reduced-motion:reduce){.blob,.btn-primary::before,.rise{animation:none}.rise{opacity:1;transform:none}.btn,.card{transition:none}}
+
+    .orb-1 {
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, var(--violet), transparent 70%);
+      top: -12%;
+      left: -8%;
+    }
+
+    .orb-2 {
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, #3b82f6, transparent 70%);
+      top: 25%;
+      right: -10%;
+      animation-delay: -9s;
+      animation-duration: 34s;
+    }
+
+    .orb-3 {
+      width: 440px;
+      height: 440px;
+      background: radial-gradient(circle, var(--pink), transparent 70%);
+      bottom: 5%;
+      left: 20%;
+      opacity: 0.3;
+      animation-delay: -18s;
+    }
+
+    @keyframes orbDrift {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(50px, -35px, 0) scale(1.08); }
+      100% { transform: translate3d(-40px, 45px, 0) scale(1.02); }
+    }
+
+    /* Interactive cursor spotlight */
+    #cursor-spotlight {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 600px;
+      height: 600px;
+      margin: -300px 0 0 -300px;
+      z-index: 0;
+      pointer-events: none;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.18), rgba(236, 72, 153, 0.06) 40%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      will-change: transform;
+    }
+
+    /* Gradients & text effects */
+    .text-gradient {
+      background: linear-gradient(110deg, #60a5fa 0%, #a855f7 45%, #ec4899 90%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .text-silver {
+      background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Card spotlight & borders */
+    .glass-card {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+
+    .glass-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      background: radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(168, 85, 247, 0.22), transparent 70%);
+    }
+
+    .glass-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--line-hover);
+      box-shadow: 0 24px 60px -20px rgba(139, 92, 246, 0.25);
+    }
+
+    .glass-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Buttons */
+    .btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn-gradient {
+      background: linear-gradient(110deg, #8b5cf6, #ec4899);
+      color: #ffffff;
+      box-shadow: 0 10px 30px -8px rgba(139, 92, 246, 0.6);
+    }
+
+    .btn-gradient:hover {
+      box-shadow: 0 14px 38px -6px rgba(139, 92, 246, 0.85);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      color: #f1f0fb;
+    }
+
+    .btn-outline:hover {
+      background: rgba(139, 92, 246, 0.12);
+      border-color: rgba(167, 139, 250, 0.4);
+      box-shadow: 0 8px 24px -6px rgba(139, 92, 246, 0.3);
+    }
+
+    /* Tech badge */
+    .tech-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      transition: all 0.2s ease;
+    }
+
+    .tech-pill:hover {
+      background: rgba(139, 92, 246, 0.15);
+      border-color: rgba(167, 139, 250, 0.4);
+      transform: translateY(-1px);
+    }
+
+    /* Smooth entrance */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUpAnim 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .fade-delay-1 { animation-delay: 0.1s; }
+    .fade-delay-2 { animation-delay: 0.2s; }
+    .fade-delay-3 { animation-delay: 0.3s; }
+    .fade-delay-4 { animation-delay: 0.4s; }
+
+    @keyframes fadeUpAnim {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive adjustments & clean container */
+    .site-container {
+      width: 100%;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+
+    @media (min-width: 640px) {
+      .site-container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .glow-orb, .fade-up {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .glass-card, .btn {
+        transition: none !important;
+      }
+    }
   </style>
 </head>
-<body class="antialiased">
-  <div class="bg" aria-hidden="true">
-    <div class="blob o1"></div>
-    <div class="blob o2"></div>
-    <div class="blob o3"></div>
+
+<body id="top" class="antialiased">
+  <!-- Dynamic Ambient Mesh & Glow Background -->
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
   </div>
-  <div id="spot" aria-hidden="true"></div>
+
+  <!-- Desktop Spotlight Glow Follower -->
+  <div id="cursor-spotlight" aria-hidden="true"></div>
 
   <!-- HEADER -->
-  <header class="fixed left-0 right-0 z-30 backdrop-blur-md bg-black/40 border-b border-white/5" style="top:env(safe-area-inset-top,0px)">
-    <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-      <a href="#top" class="display text-base font-semibold tracking-wide flex items-center gap-2">
-        <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span class="neon">Kipler</span>
-      </a>
-      <div class="hidden gap-8 text-sm sm:flex font-medium" style="color:var(--muted)">
-        <a href="#projects" class="transition hover:text-white">Все проекты</a>
-        <a href="#skills" class="transition hover:text-white">Что я умею</a>
-        <a href="#about" class="transition hover:text-white">Обо мне</a>
-      </div>
-      <div class="flex items-center gap-3">
-        <a href="https://github.com/Aziz-Kipler" target="_blank" rel="noopener noreferrer" class="btn btn-ghost rounded-full px-4 py-2 text-xs sm:text-sm font-medium flex items-center gap-2">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          <span>GitHub</span>
+  <header class="fixed left-0 right-0 top-0 z-40 backdrop-blur-xl bg-[#06050e]/80 border-b border-white/5 transition-all">
+    <div class="site-container">
+      <nav class="flex items-center justify-between py-4">
+        <!-- Logo -->
+        <a href="#top" class="flex items-center gap-3 group focus:outline-none">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-violet-600 to-pink-500 p-[1px] shadow-lg shadow-violet-500/25 group-hover:scale-105 transition-transform">
+            <div class="w-full h-full bg-[#0c0a18] rounded-[11px] flex items-center justify-center">
+              <span class="display text-sm font-bold text-white">K</span>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <span class="display text-base font-bold tracking-tight text-white group-hover:text-violet-300 transition-colors">
+              Kipler
+            </span>
+            <span class="text-[10px] tracking-widest uppercase font-mono text-violet-400/80 -mt-0.5">
+              Frontend Dev
+            </span>
+          </div>
         </a>
-        <a href="https://t.me/kipler_edit" target="_blank" rel="noopener noreferrer" class="btn btn-primary rounded-full px-4 py-2 text-xs sm:text-sm font-semibold text-white">Связаться</a>
-      </div>
-    </nav>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-300">
+          <a href="#projects" class="hover:text-white transition-colors">Проекты</a>
+          <a href="#biography" class="hover:text-white transition-colors">Биография & Обо мне</a>
+          <a href="#skills" class="hover:text-white transition-colors">Стек & Навыки</a>
+          <a href="#contact" class="hover:text-white transition-colors">Контакты</a>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex items-center gap-3">
+          <a href="https://github.com/Aziz-Kipler" target="_blank" rel="noopener noreferrer" class="btn btn-outline px-3.5 py-2 text-xs sm:text-sm font-medium" title="GitHub Репозитории">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            <span class="hidden sm:inline">GitHub</span>
+          </a>
+          <a href="https://t.me/kipler_edit" target="_blank" rel="noopener noreferrer" class="btn btn-gradient px-4 py-2 text-xs sm:text-sm font-semibold">
+            <span>Telegram</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+      </nav>
+    </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section id="top" class="flex min-h-[95svh] items-center">
-    <div class="mx-auto w-full max-w-6xl px-5 pb-16 pt-32">
-      <div class="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium mb-6 border border-white/10 bg-white/5 text-purple-300">
-        <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Доступен для новых проектов и сотрудничества
-      </div>
-      <h1 class="display rise max-w-4xl text-4xl font-semibold leading-[1.14] sm:text-5xl lg:text-6xl">
-        Привет, я <span class="neon">Kipler</span>. Разрабатываю интерактивные веб-интерфейсы и адаптивные платформы
-      </h1>
-      <p class="rise mt-6 max-w-2xl text-base leading-relaxed sm:text-lg" style="color:var(--muted)">
-        Проектирую чистый и быстрый код, отзывчивую адаптивность и дизайн премиального уровня для веб-сервисов, интернет-магазинов и авторских проектов.
-      </p>
-      <div id="contact" class="rise mt-10 flex flex-wrap gap-3.5 items-center">
-        <a href="https://t.me/kipler_edit" target="_blank" rel="noopener noreferrer" class="btn btn-primary rounded-full px-8 py-3.5 text-center font-semibold text-white text-sm sm:text-base">
-          Связаться в Telegram
-        </a>
-        <a href="#projects" class="btn btn-ghost rounded-full px-7 py-3.5 text-center font-semibold text-sm sm:text-base">
-          Смотреть проекты
-        </a>
-        <a href="https://github.com/Aziz-Kipler" target="_blank" rel="noopener noreferrer" class="btn btn-ghost rounded-full px-6 py-3.5 text-center font-semibold text-sm sm:text-base flex items-center gap-2">
-          <span>Мой GitHub</span>
-          <svg class="w-4 h-4 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS SECTION (Linked to all GitHub repos & Pages) -->
-  <section id="projects" class="mx-auto max-w-6xl px-5 py-20">
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
-      <div>
-        <span class="text-xs uppercase tracking-widest text-purple-400 font-semibold">Портфолио & Работы</span>
-        <h2 class="display text-3xl font-semibold sm:text-4xl mt-2">Выполненные проекты</h2>
-      </div>
-      <p class="text-sm max-w-md text-zinc-400">
-        Все проекты развернуты на GitHub Pages с открытым исходным кодом в репозиториях.
-      </p>
-    </div>
-
-    <div class="grid gap-6 md:grid-cols-3">
-
-      <!-- PROJECT 1: Atelier Nord Marketplace -->
-      <article class="card flex flex-col rounded-3xl p-5 border border-purple-500/30">
-        <div class="thumb" style="background:linear-gradient(135deg,#09090b 0%,#27272a 40%,#8b5cf6 100%)">
-          <div class="text-center px-4">
-            <span class="text-[10px] tracking-[0.25em] uppercase text-zinc-400 block">SELECTIVE MARKETPLACE</span>
-            <span class="display text-xl font-bold tracking-tight text-white mt-1 block">KIPLER ATELIER</span>
-          </div>
+  <!-- MAIN CONTENT -->
+  <main class="relative z-10 pt-28 pb-20">
+    <!-- HERO SECTION -->
+    <section class="site-container pt-8 pb-16 sm:pt-14 sm:pb-24">
+      <div class="max-w-4xl">
+        <!-- Status indicator badge -->
+        <div class="fade-up inline-flex items-center gap-2.5 rounded-full px-4 py-1.5 text-xs font-medium border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 mb-6">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span>Открыт к новым проектам и интересным предложениям</span>
         </div>
-        <div class="flex flex-1 flex-col pt-5">
-          <div class="flex items-center justify-between gap-2">
-            <span class="w-fit rounded-full px-3 py-1 text-[11px] font-semibold" style="background:rgba(139,92,246,.25);color:#d6c9ff">
-              React • TypeScript • Tailwind
-            </span>
-            <span class="text-[10px] text-emerald-400 font-mono">Live Demo</span>
-          </div>
-          <h3 class="display mt-4 text-lg font-medium leading-snug">
-            Селективный маркетплейс «KIPLER ATELIER» (Atelier Nord)
-          </h3>
-          <p class="mt-3 text-sm leading-relaxed flex-1" style="color:var(--muted)">
-            Полноценная e-commerce платформа для продажи дизайнерских вещей, дропов и винтажа. Включает адаптивный каталог с умными фильтрами, детальные карточки товара, интерактивную корзину, вишлист, личный кабинет покупателя и панель администратора для управления каталогом и заказами.
-          </p>
-          <div class="mt-6 flex flex-wrap gap-2.5 pt-2 border-t border-white/10">
-            <a href="https://aziz-kipler.github.io/atelier-nord-marketplace/" target="_blank" rel="noopener noreferrer" class="btn btn-primary rounded-full px-5 py-2.5 text-xs font-semibold text-white flex-1 text-center">
-              Открыть сайт ↗
-            </a>
-            <a href="https://github.com/Aziz-Kipler/atelier-nord-marketplace" target="_blank" rel="noopener noreferrer" class="btn btn-ghost rounded-full px-4 py-2.5 text-xs font-semibold flex items-center justify-center gap-1.5" title="Репозиторий на GitHub">
-              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-              <span>GitHub</span>
-            </a>
-          </div>
-        </div>
-      </article>
 
-      <!-- PROJECT 2: Azbuka Vkusa (First Project) -->
-      <article class="card flex flex-col rounded-3xl p-5 border border-white/10">
-        <div class="thumb" style="background:linear-gradient(135deg,#8b5cf6,#3b82f6 55%,#ff3db8)">
-          <div class="text-center px-4">
-            <span class="text-[10px] tracking-[0.2em] uppercase text-white/80 block">FIRST PROJECT</span>
-            <span class="display text-xl font-bold tracking-tight text-white mt-1 block">АЗБУКА ВКУСА</span>
-          </div>
-        </div>
-        <div class="flex flex-1 flex-col pt-5">
-          <div class="flex items-center justify-between gap-2">
-            <span class="w-fit rounded-full px-3 py-1 text-[11px] font-semibold" style="background:rgba(59,130,246,.2);color:#bae6fd">
-              HTML5 • CSS3 • Animations
-            </span>
-            <span class="text-[10px] text-zinc-400 font-mono">1-й проект</span>
-          </div>
-          <h3 class="display mt-4 text-lg font-medium leading-snug">
-            Веб-платформа для ритейл-экосистемы «Азбука Вкуса»
-          </h3>
-          <p class="mt-3 text-sm leading-relaxed flex-1" style="color:var(--muted)">
-            Первый авторский проект веб-страницы. Проектирование и адаптивная вёрстка, плавные анимации элементов, интеграция кастомных шрифтов и стилизация элементов под фирменный стиль премиального ритейлера.
-          </p>
-          <div class="mt-6 flex flex-wrap gap-2.5 pt-2 border-t border-white/10">
-            <a href="https://aziz-kipler.github.io/My-first-web-site-Azbuka_vkusa/" target="_blank" rel="noopener noreferrer" class="btn btn-primary rounded-full px-5 py-2.5 text-xs font-semibold text-white flex-1 text-center">
-              Смотреть кейс ↗
-            </a>
-            <a href="https://github.com/Aziz-Kipler/My-first-web-site-Azbuka_vkusa" target="_blank" rel="noopener noreferrer" class="btn btn-ghost rounded-full px-4 py-2.5 text-xs font-semibold flex items-center justify-center gap-1.5" title="Репозиторий на GitHub">
-              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-              <span>GitHub</span>
-            </a>
-          </div>
-        </div>
-      </article>
+        <!-- Main Headline -->
+        <h1 class="fade-up fade-delay-1 display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08]">
+          Создаю выразительные интерфейсы и быстрый веб. 
+          <span class="block mt-2 text-gradient">Я — Kipler.</span>
+        </h1>
 
-      <!-- PROJECT 3: Adis — vverkh! -->
-      <article class="card flex flex-col rounded-3xl p-5 border border-white/10">
-        <div class="thumb" style="background:linear-gradient(135deg,#FFD60A,#FF5A36 60%,#0F1B3D)">
-          <div class="text-center px-4">
-            <span class="text-[10px] tracking-[0.2em] uppercase text-zinc-900 font-bold block">INTERACTIVE APP</span>
-            <span class="display text-xl font-bold tracking-tight text-zinc-950 mt-1 block">АДИС — ВВЕРХ!</span>
-          </div>
-        </div>
-        <div class="flex flex-1 flex-col pt-5">
-          <div class="flex items-center justify-between gap-2">
-            <span class="w-fit rounded-full px-3 py-1 text-[11px] font-semibold" style="background:rgba(255,214,10,.2);color:#fef08a">
-              JavaScript • UI/UX • Typography
-            </span>
-            <span class="text-[10px] text-emerald-400 font-mono">Live Demo</span>
-          </div>
-          <h3 class="display mt-4 text-lg font-medium leading-snug">
-            Интерактивный веб-сервис «Адис — вверх!»
-          </h3>
-          <p class="mt-3 text-sm leading-relaxed flex-1" style="color:var(--muted)">
-            Креативный веб-интерфейс с яркой акцидентной типографикой (Unbounded и Onest), динамическим генератором энергии, интерактивными карточками шагов и адаптивным оформлением с поддержкой тёмного режима.
-          </p>
-          <div class="mt-6 flex flex-wrap gap-2.5 pt-2 border-t border-white/10">
-            <a href="https://aziz-kipler.github.io/-/" target="_blank" rel="noopener noreferrer" class="btn btn-primary rounded-full px-5 py-2.5 text-xs font-semibold text-white flex-1 text-center">
-              Открыть сайт ↗
-            </a>
-            <a href="https://github.com/Aziz-Kipler/-" target="_blank" rel="noopener noreferrer" class="btn btn-ghost rounded-full px-4 py-2.5 text-xs font-semibold flex items-center justify-center gap-1.5" title="Репозиторий на GitHub">
-              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-              <span>GitHub</span>
-            </a>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- SKILLS SECTION -->
-  <section id="skills" class="mx-auto max-w-6xl px-5 py-20">
-    <span class="text-xs uppercase tracking-widest text-purple-400 font-semibold">Компетенции</span>
-    <h2 class="display text-3xl font-semibold sm:text-4xl mt-2">Что я умею</h2>
-    <div class="mt-10 grid gap-5 md:grid-cols-3">
-      <article class="card rounded-3xl p-7">
-        <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl text-xl" style="background:linear-gradient(135deg,var(--v),var(--b))">◧</div>
-        <h3 class="display text-lg font-medium">UI/UX & Frontend Разработка</h3>
-        <p class="mt-3 text-sm leading-relaxed" style="color:var(--muted)">Адаптивная вёрстка современных интерфейсов на React, TypeScript, Tailwind CSS, HTML5 и CSS3. Идеальная работа на смартфонах и ПК без горизонтальных скроллов.</p>
-      </article>
-      <article class="card rounded-3xl p-7">
-        <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl text-xl" style="background:linear-gradient(135deg,var(--p),var(--v))">⚡</div>
-        <h3 class="display text-lg font-medium">E-Commerce & Интерактив</h3>
-        <p class="mt-3 text-sm leading-relaxed" style="color:var(--muted)">Разработка интернет-магазинов, каталогов с поиском и фильтрацией, корзины покупок, вишлистов и панелей управления контентом.</p>
-      </article>
-      <article class="card rounded-3xl p-7">
-        <div class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl text-xl" style="background:linear-gradient(135deg,var(--b),var(--p))">⇄</div>
-        <h3 class="display text-lg font-medium">Деплой & GitHub Pages</h3>
-        <p class="mt-3 text-sm leading-relaxed" style="color:var(--muted)">Публикация и настройка хостинга на GitHub Pages, оптимизация сборки (Vite/Webpack), чистый семантический код и SEO-оптимизация.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- ABOUT & CONTACT SECTION -->
-  <section id="about" class="mx-auto max-w-6xl px-5 py-20 border-t border-white/5">
-    <div class="rounded-3xl p-8 sm:p-12 border border-purple-500/20 bg-gradient-to-b from-purple-950/20 to-transparent">
-      <div class="max-w-3xl">
-        <span class="text-xs uppercase tracking-widest text-pink-400 font-semibold">Биография & Контакты</span>
-        <h2 class="display text-3xl font-semibold sm:text-4xl mt-2">Обо мне и сотрудничество</h2>
-        <p class="mt-4 text-base leading-relaxed text-zinc-300">
-          Меня зовут Kipler. Я создаю цифровые продукты, веб-сайты и сервисы с упором на эстетичный минимализм, высокую скорость загрузки и удобство пользователя. Всегда открыт к интересным предложениям, заказам и совместной разработке.
+        <!-- Subtitle -->
+        <p class="fade-up fade-delay-2 mt-6 max-w-2xl text-base sm:text-xl leading-relaxed text-zinc-300 font-normal">
+          Фронтенд-инженер и дизайнер интерфейсов. Превращаю сложные идеи в элегантные цифровые продукты с безупречной адаптивностью, высокой скоростью загрузки и вниманием к каждой детали.
         </p>
-        <div class="mt-8 flex flex-wrap gap-4 items-center">
-          <a href="https://t.me/kipler_edit" target="_blank" rel="noopener noreferrer" class="btn btn-primary rounded-full px-8 py-3.5 text-sm sm:text-base font-semibold text-white">
-            Написать в Telegram @kipler_edit
+
+        <!-- CTA Action Buttons -->
+        <div class="fade-up fade-delay-3 mt-10 flex flex-wrap items-center gap-4">
+          <a href="https://t.me/kipler_edit" target="_blank" rel="noopener noreferrer" class="btn btn-gradient px-8 py-3.5 text-sm sm:text-base font-semibold shadow-lg shadow-violet-500/30">
+            <span>Обсудить проект в Telegram</span>
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
-          <a href="https://github.com/Aziz-Kipler" target="_blank" rel="noopener noreferrer" class="btn btn-ghost rounded-full px-6 py-3.5 text-sm sm:text-base font-semibold flex items-center gap-2">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-            <span>GitHub Профиль</span>
+          <a href="#projects" class="btn btn-outline px-7 py-3.5 text-sm sm:text-base font-semibold">
+            Смотреть проекты ↓
+          </a>
+          <a href="#biography" class="btn btn-outline px-6 py-3.5 text-sm sm:text-base font-medium text-zinc-300">
+            Биография & Обо мне
           </a>
         </div>
+
+        <!-- Metric highlights -->
+        <div class="fade-up fade-delay-4 mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4 pt-10 border-t border-white/10">
+          <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5">
+            <div class="display text-2xl sm:text-3xl font-bold text-white">100%</div>
+            <div class="text-xs text-zinc-400 mt-1">Адаптивность без скроллов</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5">
+            <div class="display text-2xl sm:text-3xl font-bold text-violet-400">React + TS</div>
+            <div class="text-xs text-zinc-400 mt-1">Современный технологический стек</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5">
+            <div class="display text-2xl sm:text-3xl font-bold text-pink-400">Pixel-Perfect</div>
+            <div class="text-xs text-zinc-400 mt-1">Проработка UI/UX и типографики</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5">
+            <div class="display text-2xl sm:text-3xl font-bold text-emerald-400">Fast & Clean</div>
+            <div class="text-xs text-zinc-400 mt-1">Чистый семантический код</div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- SECTION: PROJECTS SHOWCASE (2 Flagship Projects) -->
+    <section id="projects" class="site-container py-16 sm:py-24 border-t border-white/5">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-violet-400 font-semibold mb-2">
+            <span class="w-2 h-2 rounded-full bg-violet-400"></span>
+            Портфолио проектов
+          </div>
+          <h2 class="display text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+            Избранные работы
+          </h2>
+        </div>
+        <p class="text-sm sm:text-base max-w-md text-zinc-400">
+          Реальные проекты с развернутыми демо-версиями на GitHub Pages и открытым исходным кодом.
+        </p>
+      </div>
+
+      <!-- 2-Column Responsive Grid -->
+      <div class="grid gap-8 lg:grid-cols-2">
+        <!-- PROJECT 1: KIPLER ATELIER (Selective Marketplace) -->
+        <article class="glass-card flex flex-col p-6 sm:p-8 border-violet-500/30 group">
+          <!-- Thumbnail banner -->
+          <div class="relative h-56 sm:h-64 rounded-2xl overflow-hidden bg-gradient-to-br from-[#0c0a18] via-[#1a1633] to-[#8b5cf6]/40 p-6 flex flex-col justify-between border border-white/10 group-hover:border-violet-500/40 transition-colors">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-mono tracking-widest uppercase px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-violet-300 border border-violet-500/30 font-semibold">
+                E-Commerce Flagship
+              </span>
+              <span class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-mono border border-emerald-500/30">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                Live Demo
+              </span>
+            </div>
+
+            <div>
+              <span class="text-xs tracking-[0.25em] uppercase text-zinc-400 font-mono block">SELECTIVE MARKETPLACE</span>
+              <h3 class="display text-2xl sm:text-3xl font-extrabold text-white mt-1 tracking-tight">
+                KIPLER ATELIER
+              </h3>
+              <p class="text-xs text-zinc-300/80 mt-1 font-mono">Curated Fashion & Designer Archive</p>
+            </div>
+
+            <!-- Subtle background accent -->
+            <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-violet-600/20 rounded-full blur-3xl pointer-events-none"></div>
+          </div>
+
+          <!-- Description and Specs -->
+          <div class="flex-1 flex flex-col pt-6">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tech-pill text-violet-300 bg-violet-950/40 border-violet-500/30">React</span>
+              <span class="tech-pill text-sky-300 bg-sky-950/40 border-sky-500/30">TypeScript</span>
+              <span class="tech-pill text-teal-300 bg-teal-950/40 border-teal-500/30">Tailwind CSS</span>
+              <span class="tech-pill text-pink-300 bg-pink-950/40 border-pink-500/30">Vite</span>
+              <span class="tech-pill text-zinc-300">Lucide Icons</span>
+            </div>
+
+            <h4 class="display text-xl font-bold text-white mb-2">
+              Селективный маркетплейс «KIPLER ATELIER» (Atelier Nord)
+            </h4>
+
+            <p class="text-sm leading-relaxed text-zinc-300/90 mb-6 flex-1">
+              Полномасштабная e-commerce платформа для продажи дизайнерской одежды, обуви, головных уборов и винтажных коллекций. Реализован каталог с интеллектуальной фильтрацией по брендам и ценам, интерактивная корзина покупок с drawer-панелью, список избранного (вишлист), личный кабинет покупателя и отдельная панель администратора для управления товарами.
+            </p>
+
+            <!-- Key Features bullet points -->
+            <div class="grid grid-cols-2 gap-2.5 py-4 border-t border-b border-white/5 mb-6 text-xs text-zinc-300">
+              <div class="flex items-center gap-2">
+                <span class="text-violet-400">✓</span> Умная фильтрация & сортировка
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-violet-400">✓</span> Корзина & быстрый заказ
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-violet-400">✓</span> Панель администратора
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-violet-400">✓</span> Полный мобильный адаптив
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap items-center gap-3">
+              <a href="https://aziz-kipler.github.io/atelier-nord-marketplace/" target="_blank" rel="noopener noreferrer" class="btn btn-gradient flex-1 py-3 px-5 text-sm font-semibold text-white text-center">
+                <span>Открыть маркетплейс ↗</span>
+              </a>
+              <a href="https://github.com/Aziz-Kipler/atelier-nord-marketplace" target="_blank" rel="noopener noreferrer" class="btn btn-outline py-3 px-5 text-sm font-semibold flex items-center justify-center gap-2" title="Репозиторий проекта">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                <span>GitHub Репозиторий</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT 2: Azbuka Vkusa (First Milestone Project) -->
+        <article class="glass-card flex flex-col p-6 sm:p-8 border-pink-500/20 group">
+          <!-- Thumbnail banner -->
+          <div class="relative h-56 sm:h-64 rounded-2xl overflow-hidden bg-gradient-to-br from-[#120a1c] via-[#2c1445] to-[#ec4899]/40 p-6 flex flex-col justify-between border border-white/10 group-hover:border-pink-500/40 transition-colors">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-mono tracking-widest uppercase px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-pink-300 border border-pink-500/30 font-semibold">
+                Первый веб-проект
+              </span>
+              <span class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-500/20 text-pink-200 text-xs font-mono border border-pink-500/30">
+                <span class="w-1.5 h-1.5 rounded-full bg-pink-400"></span>
+                Live Demo
+              </span>
+            </div>
+
+            <div>
+              <span class="text-xs tracking-[0.25em] uppercase text-zinc-400 font-mono block">RETAIL ECOSYSTEM</span>
+              <h3 class="display text-2xl sm:text-3xl font-extrabold text-white mt-1 tracking-tight">
+                АЗБУКА ВКУСА
+              </h3>
+              <p class="text-xs text-zinc-300/80 mt-1 font-mono">Premium Supermarket Web Showcase</p>
+            </div>
+
+            <!-- Subtle background accent -->
+            <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-pink-600/20 rounded-full blur-3xl pointer-events-none"></div>
+          </div>
+
+          <!-- Description and Specs -->
+          <div class="flex-1 flex flex-col pt-6">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tech-pill text-pink-300 bg-pink-950/40 border-pink-500/30">HTML5</span>
+              <span class="tech-pill text-cyan-300 bg-cyan-950/40 border-cyan-500/30">CSS3 Animations</span>
+              <span class="tech-pill text-amber-300 bg-amber-950/40 border-amber-500/30">JavaScript</span>
+              <span class="tech-pill text-emerald-300 bg-emerald-950/40 border-emerald-500/30">Responsive</span>
+              <span class="tech-pill text-zinc-300">Typography</span>
+            </div>
+
+            <h4 class="display text-xl font-bold text-white mb-2">
+              Веб-платформа для ритейл-экосистемы «Азбука Вкуса»
+            </h4>
+
+            <p class="text-sm leading-relaxed text-zinc-300/90 mb-6 flex-1">
+              Первая авторская веб-разработка, положившая начало пути в frontend-инжиниринге. Проектирование структуры, кроссбраузерная адаптивная вёрстка, плавные анимации появления блоков при прокрутке, акцентная работа со шрифтами и строгая верность фирменному стилю премиального супермаркета.
+            </p>
+
+            <!-- Key Features bullet points -->
+            <div class="grid grid-cols-2 gap-2.5 py-4 border-t border-b border-white/5 mb-6 text-xs text-zinc-300">
+              <div class="flex items-center gap-2">
+                <span class="text-pink-400">✓</span> Семантическая структура HTML5
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-pink-400">✓</span> Кастомные CSS-анимации
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-pink-400">✓</span> Презентация продуктовой линейки
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-pink-400">✓</span> Развёрнут на GitHub Pages
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap items-center gap-3">
+              <a href="https://aziz-kipler.github.io/My-first-web-site-Azbuka_vkusa/" target="_blank" rel="noopener noreferrer" class="btn btn-gradient flex-1 py-3 px-5 text-sm font-semibold text-white text-center">
+                <span>Открыть кейс ↗</span>
+              </a>
+              <a href="https://github.com/Aziz-Kipler/My-first-web-site-Azbuka_vkusa" target="_blank" rel="noopener noreferrer" class="btn btn-outline py-3 px-5 text-sm font-semibold flex items-center justify-center gap-2" title="Репозиторий проекта">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                <span>GitHub Репозиторий</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION: BIOGRAPHY & ABOUT ME (Deep, aesthetically rich layout) -->
+    <section id="biography" class="site-container py-16 sm:py-24 border-t border-white/5">
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-pink-400 font-semibold mb-2">
+          <span class="w-2 h-2 rounded-full bg-pink-400"></span>
+          Обо мне & История
+        </div>
+        <h2 class="display text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+          Биография & Философия
+        </h2>
+      </div>
+
+      <!-- Bento Grid for Biography -->
+      <div class="grid gap-6 lg:grid-cols-12">
+        <!-- Main Story Card (Large 7 columns) -->
+        <article class="glass-card lg:col-span-7 p-8 sm:p-10 flex flex-col justify-between border-violet-500/20">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-violet-600 to-pink-500 flex items-center justify-center text-xl font-bold text-white shadow-lg shadow-violet-500/30">
+                ✦
+              </div>
+              <div>
+                <h3 class="display text-xl font-bold text-white">Кто такой Kipler?</h3>
+                <p class="text-xs text-zinc-400 font-mono">Frontend Engineer & Creative Technologist</p>
+              </div>
+            </div>
+
+            <div class="space-y-4 text-sm sm:text-base leading-relaxed text-zinc-300">
+              <p>
+                Я разрабатываю современные интерактивные веб-интерфейсы и полноценные веб-платформы. Мой фокус — соединение визуальной эстетики, строгой математической адаптивности и скорости работы.
+              </p>
+              <p>
+                Мой путь начался с первого проекта для ритейла <strong class="text-white font-medium">«Азбука Вкуса»</strong>, где я исследовал фундаментальные принципы вёрстки, структуры страницы и взаимодействия элементов. Отточив базовую базу, я перешёл к архитектуре современных приложений на <strong class="text-violet-300 font-medium">React, TypeScript и Tailwind CSS</strong>, создав масштабный маркетплейс <strong class="text-white font-medium">«KIPLER ATELIER»</strong> с корзиной, фильтрами и панелями администратора.
+              </p>
+              <p>
+                В разработке я придерживаюсь принципа <strong class="text-emerald-400 font-mono">Zero-Overflow Discipline</strong>: ни один экран, будь то компактный смартфон с нестандартным вырезом или широкий монитор 4K, не должен иметь случайных боковых полос, горизонтального сдвига контента или дёргающихся элементов.
+              </p>
+            </div>
+          </div>
+
+          <!-- Quote Block -->
+          <div class="mt-8 p-5 rounded-2xl bg-violet-950/20 border border-violet-500/20 text-xs sm:text-sm text-violet-200/90 italic flex items-start gap-3">
+            <span class="text-xl text-violet-400 not-italic leading-none">“</span>
+            <span>Хороший код незаметен пользователю — он просто ощущает комфорт, чистоту и мгновенную отзывчивость интерфейса при каждом клике.</span>
+          </div>
+        </article>
+
+        <!-- Right Bento Column (5 columns) -->
+        <div class="lg:col-span-5 flex flex-col gap-6">
+          <!-- Card: Engineering Principles -->
+          <article class="glass-card p-6 sm:p-7 border-white/10">
+            <h4 class="display text-base font-bold text-white flex items-center gap-2 mb-4">
+              <span class="text-violet-400 font-mono text-sm">#01</span>
+              Принципы разработки
+            </h4>
+            <ul class="space-y-3 text-xs sm:text-sm text-zinc-300">
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-400 font-bold mt-0.5">•</span>
+                <span><strong>Mobile-First & Респонсив:</strong> Идеальное поведение вёрстки на любом разрешении и ориентации.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-violet-400 font-bold mt-0.5">•</span>
+                <span><strong>Типографическая иерархия:</strong> Баланс акцидентных шрифтов и комфортной читаемости текста.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-pink-400 font-bold mt-0.5">•</span>
+                <span><strong>Компонентный подход:</strong> Переиспользуемый, структурированный код без дублирования.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <span class="text-sky-400 font-bold mt-0.5">•</span>
+                <span><strong>Прозрачность:</strong> Открытый исходный код и регулярный деплой на GitHub.</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Card: Profile & Quick Info -->
+          <article class="glass-card p-6 sm:p-7 border-white/10 flex-1 flex flex-col justify-between">
+            <div>
+              <h4 class="display text-base font-bold text-white flex items-center gap-2 mb-4">
+                <span class="text-pink-400 font-mono text-sm">#02</span>
+                Формат работы & Локация
+              </h4>
+              <div class="space-y-2.5 text-xs sm:text-sm text-zinc-300">
+                <div class="flex justify-between py-1.5 border-b border-white/5">
+                  <span class="text-zinc-400">Формат</span>
+                  <span class="font-medium text-white">Remote (Удалённо) / Freelance</span>
+                </div>
+                <div class="flex justify-between py-1.5 border-b border-white/5">
+                  <span class="text-zinc-400">Специализация</span>
+                  <span class="font-medium text-violet-300">Frontend, UI/UX, E-commerce</span>
+                </div>
+                <div class="flex justify-between py-1.5 border-b border-white/5">
+                  <span class="text-zinc-400">Языки</span>
+                  <span class="font-medium text-white">Русский (Native), Английский</span>
+                </div>
+                <div class="flex justify-between py-1.5 border-b border-white/5">
+                  <span class="text-zinc-400">Связь</span>
+                  <span class="font-medium text-emerald-400">Telegram @kipler_edit</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Telegram Quick Contact CTA -->
+            <div class="mt-6 pt-4 border-t border-white/5">
+              <a href="https://t.me/kipler_edit" target="_blank" rel="noopener noreferrer" class="btn btn-outline w-full py-2.5 text-xs font-semibold text-center flex items-center justify-center gap-2">
+                <span>Написать лично в Telegram</span>
+                <span class="text-violet-400 font-mono">@kipler_edit ↗</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: TECH STACK & COMPETENCIES -->
+    <section id="skills" class="site-container py-16 sm:py-24 border-t border-white/5">
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-violet-400 font-semibold mb-2">
+          <span class="w-2 h-2 rounded-full bg-violet-400"></span>
+          Компетенции & Инструменты
+        </div>
+        <h2 class="display text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+          Технологический стек
+        </h2>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-3">
+        <!-- Skill 1 -->
+        <article class="glass-card p-7 border-violet-500/20">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-violet-600 to-indigo-600 flex items-center justify-center text-xl mb-6 shadow-lg shadow-violet-500/20">
+            ⚡
+          </div>
+          <h3 class="display text-lg font-bold text-white">Frontend Core</h3>
+          <p class="mt-2 text-sm leading-relaxed text-zinc-300">
+            Разработка интерфейсов на React и TypeScript. Написание семантического HTML5, чистого модульного CSS3, современного JavaScript (ES6+).
+          </p>
+          <div class="mt-6 flex flex-wrap gap-1.5">
+            <span class="tech-pill">React</span>
+            <span class="tech-pill">TypeScript</span>
+            <span class="tech-pill">JavaScript</span>
+            <span class="tech-pill">HTML5</span>
+            <span class="tech-pill">CSS3</span>
+          </div>
+        </article>
+
+        <!-- Skill 2 -->
+        <article class="glass-card p-7 border-pink-500/20">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-pink-600 to-rose-600 flex items-center justify-center text-xl mb-6 shadow-lg shadow-pink-500/20">
+            🎨
+          </div>
+          <h3 class="display text-lg font-bold text-white">UI/UX & Стилизация</h3>
+          <p class="mt-2 text-sm leading-relaxed text-zinc-300">
+            Проектирование визуальной иерархии в Tailwind CSS. Адаптивность для мобильных телефонов, планшетов и экранов Retina, кастомные анимации и микро-взаимодействия.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-1.5">
+            <span class="tech-pill">Tailwind CSS</span>
+            <span class="tech-pill">Responsive Design</span>
+            <span class="tech-pill">Micro-interactions</span>
+            <span class="tech-pill">Figma to Code</span>
+          </div>
+        </article>
+
+        <!-- Skill 3 -->
+        <article class="glass-card p-7 border-cyan-500/20">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-cyan-600 to-blue-600 flex items-center justify-center text-xl mb-6 shadow-lg shadow-cyan-500/20">
+            🚀
+          </div>
+          <h3 class="display text-lg font-bold text-white">Деплой & Инструменты</h3>
+          <p class="mt-2 text-sm leading-relaxed text-zinc-300">
+            Сборка и оптимизация на Vite, версионирование в Git, автоматический деплой и хостинг на GitHub Pages, оптимизация загрузки шрифтов и изображений.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-1.5">
+            <span class="tech-pill">Vite</span>
+            <span class="tech-pill">Git</span>
+            <span class="tech-pill">GitHub Pages</span>
+            <span class="tech-pill">Web Performance</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Developer Terminal Spec Preview -->
+      <div class="mt-8 glass-card p-6 font-mono text-xs text-zinc-300 border-white/10 overflow-x-auto">
+        <div class="flex items-center gap-2 mb-3 pb-3 border-b border-white/5 text-zinc-500">
+          <div class="flex gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+          </div>
+          <span class="text-[11px] text-zinc-400">kipler-profile.json</span>
+        </div>
+        <pre class="text-zinc-300 leading-relaxed"><code>{
+  <span class="text-violet-400">"developer"</span>: <span class="text-emerald-300">"Kipler"</span>,
+  <span class="text-violet-400">"role"</span>: <span class="text-emerald-300">"Frontend & UI/UX Developer"</span>,
+  <span class="text-violet-400">"flagship_project"</span>: <span class="text-emerald-300">"KIPLER ATELIER (Atelier Nord)"</span>,
+  <span class="text-violet-400">"debut_project"</span>: <span class="text-emerald-300">"Азбука Вкуса"</span>,
+  <span class="text-violet-400">"contact"</span>: {
+    <span class="text-violet-400">"telegram"</span>: <span class="text-emerald-300">"https://t.me/kipler_edit"</span>,
+    <span class="text-violet-400">"github"</span>: <span class="text-emerald-300">"https://github.com/Aziz-Kipler"</span>
+  },
+  <span class="text-violet-400">"status"</span>: <span class="text-emerald-400">"Ready for collaboration & freelance projects"</span>
+}</code></pre>
+      </div>
+    </section>
+
+    <!-- SECTION: CONTACT & COLLABORATION -->
+    <section id="contact" class="site-container py-16 sm:py-24 border-t border-white/5">
+      <div class="glass-card p-8 sm:p-14 border-violet-500/30 bg-gradient-to-br from-violet-950/30 via-[#0c0a18] to-pink-950/20 text-center relative overflow-hidden">
+        <!-- Ambient lighting -->
+        <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-violet-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-2xl mx-auto">
+          <span class="inline-flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-violet-300 font-semibold mb-3">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            Контакты
+          </span>
+          <h2 class="display text-3xl sm:text-5xl font-bold text-white">
+            Давайте создадим что-то выдающееся вместе
+          </h2>
+          <p class="mt-4 text-base sm:text-lg text-zinc-300 leading-relaxed">
+            Открыт к заказам на разработку сайтов, маркетплейсов, адаптивных лендингов и сотрудничеству в команде. Напишите мне в Telegram для быстрой связи.
+          </p>
+
+          <div class="mt-8 flex flex-wrap justify-center items-center gap-4">
+            <a href="https://t.me/kipler_edit" target="_blank" rel="noopener noreferrer" class="btn btn-gradient px-9 py-4 text-base font-semibold text-white shadow-xl shadow-violet-500/30">
+              <span>Связаться в Telegram: @kipler_edit</span>
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            <a href="https://github.com/Aziz-Kipler" target="_blank" rel="noopener noreferrer" class="btn btn-outline px-7 py-4 text-base font-semibold flex items-center gap-2">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- FOOTER -->
-  <footer class="px-5 pb-12 pt-8 text-center text-sm border-t border-white/5" style="color:var(--muted)">
-    <div class="mx-auto max-w-6xl flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div>© 2026 Kipler • Frontend Developer</div>
-      <div class="flex items-center gap-6">
-        <a href="https://github.com/Aziz-Kipler" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">GitHub</a>
-        <a href="https://t.me/kipler_edit" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Telegram</a>
-        <a href="#top" class="hover:text-white transition">Наверх ↑</a>
+  <footer class="border-t border-white/5 py-8 text-xs text-zinc-400">
+    <div class="site-container flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="display font-bold text-white">Kipler</span>
+        <span class="text-zinc-600">•</span>
+        <span>Frontend & UI/UX Developer</span>
+        <span class="text-zinc-600">•</span>
+        <span>© 2026</span>
+      </div>
+      <div class="flex items-center gap-6 font-medium">
+        <a href="https://github.com/Aziz-Kipler" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GitHub</a>
+        <a href="https://t.me/kipler_edit" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Telegram</a>
+        <a href="#top" class="hover:text-white transition-colors">Наверх ↑</a>
       </div>
     </div>
   </footer>
 
+  <!-- Interactive Spotlight Script -->
   <script>
-    (function(){
-      var spot = document.getElementById('spot');
-      var fine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
-      var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var tx = innerWidth/2, ty = innerHeight/3, x = tx, y = ty;
-      if (fine && !calm){
-        addEventListener('pointermove', function(e){ tx = e.clientX; ty = e.clientY; spot.style.opacity = 1; });
-        (function loop(){
-          x += (tx-x)*0.08; y += (ty-y)*0.08;
-          spot.style.transform = 'translate3d('+x.toFixed(1)+'px,'+y.toFixed(1)+'px,0)';
-          requestAnimationFrame(loop);
+    (function() {
+      // Mouse spotlight tracker on desktop
+      var spot = document.getElementById('cursor-spotlight');
+      var isPointerFine = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var targetX = window.innerWidth / 2;
+      var targetY = window.innerHeight / 3;
+      var currentX = targetX;
+      var currentY = targetY;
+
+      if (isPointerFine && !prefersReducedMotion && spot) {
+        window.addEventListener('pointermove', function(e) {
+          targetX = e.clientX;
+          targetY = e.clientY;
+          spot.style.opacity = '1';
+        });
+
+        (function animateCursor() {
+          currentX += (targetX - currentX) * 0.08;
+          currentY += (targetY - currentY) * 0.08;
+          spot.style.transform = 'translate3d(' + currentX.toFixed(1) + 'px,' + currentY.toFixed(1) + 'px, 0)';
+          requestAnimationFrame(animateCursor);
         })();
       }
-      document.querySelectorAll('.card').forEach(function(c){
-        c.addEventListener('pointermove', function(e){
-          var r = c.getBoundingClientRect();
-          c.style.setProperty('--mx', (e.clientX-r.left)+'px');
-          c.style.setProperty('--my', (e.clientY-r.top)+'px');
+
+      // Card 3D spotlight effect
+      document.querySelectorAll('.glass-card').forEach(function(card) {
+        card.addEventListener('pointermove', function(e) {
+          var rect = card.getBoundingClientRect();
+          card.style.setProperty('--mouse-x', (e.clientX - rect.left) + 'px');
+          card.style.setProperty('--mouse-y', (e.clientY - rect.top) + 'px');
         });
       });
     })();
