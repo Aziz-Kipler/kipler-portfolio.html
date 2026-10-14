@@ -1,0 +1,54 @@
+[
+  {
+    "id": "kipler-atelier",
+    "title": "KIPLER ATELIER",
+    "subtitle": "Selective Marketplace",
+    "badge": "E-Commerce Flagship",
+    "status": "Live Demo",
+    "theme": "violet",
+    "description": "Премиальный концепт цифрового ритейла с кинематическими микро-взаимодействиями 120 FPS, динамической smart-фильтрацией и персональным консьерж-сервисом.",
+    "tags": ["React 19", "TypeScript", "Tailwind CSS", "Kinematics 120Hz", "Web Architecture"],
+    "liveUrl": "https://ais-pre-thc4c4h6hxz2ebhmhse72b-966418608207.asia-southeast1.run.app",
+    "githubUrl": "https://github.com/Aziz-Kipler/atelier-nord-marketplace",
+    "mirrorUrl": ""
+  },
+  {
+    "id": "skypark-extreme",
+    "title": "SKYPARK EXTREME",
+    "subtitle": "Edge of Adrenaline",
+    "badge": "Adrenaline Portal",
+    "status": "Live Demo",
+    "theme": "cyan",
+    "description": "Иммерсивный промо-лендинг высотных аттракционов: кинематический счетчик высоты 207m, живой расчет ветра/погоды и бронирование прыжков.",
+    "tags": ["Tailwind CSS", "120Hz Kinematics", "Interactive UI", "Glassmorphism", "Responsive UX"],
+    "liveUrl": "https://aziz-kipler.github.io/skypark-extreme/",
+    "githubUrl": "https://github.com/Aziz-Kipler/skypark-extreme",
+    "mirrorUrl": "https://mrsgemaseny.github.io/testing/skypark.html"
+  },
+  {
+    "id": "starbucks-reserve",
+    "title": "STARBUCKS RESERVE™",
+    "subtitle": "Pure Terroir",
+    "badge": "Luxury Dark UI",
+    "status": "Live Demo",
+    "theme": "amber",
+    "description": "Эксклюзивный промо-лендинг для редких микролотов кофе: интерактивная карта плантаций, физика парящих зерен и цифровой бариста-гид.",
+    "tags": ["Tailwind CSS", "Playfair Display", "Dark Luxury UI", "Physics Canvas", "Interactive Guide"],
+    "liveUrl": "https://aziz-kipler.github.io/starbucks-reserve/",
+    "githubUrl": "https://github.com/Aziz-Kipler/starbucks-reserve",
+    "mirrorUrl": "https://mrsgemaseny.github.io/testing/"
+  },
+  {
+    "id": "azbuka-vkusa",
+    "title": "АЗБУКА ВКУСА",
+    "subtitle": "Retail Ecosystem",
+    "badge": "Первый веб-проект",
+    "status": "Milestone Showcase",
+    "theme": "pink",
+    "description": "Мой первый завершенный коммерческий веб-проект: интерактивный каталог, адаптивная верстка и прочная основа в веб-разработке.",
+    "tags": ["HTML5", "CSS3 Animations", "JavaScript", "Responsive Design", "Typography"],
+    "liveUrl": "https://aziz-kipler.github.io/My-first-web-site-Azbuka_vkusa/",
+    "githubUrl": "https://github.com/Aziz-Kipler/My-first-web-site-Azbuka_vkusa",
+    "mirrorUrl": ""
+  }
+]
